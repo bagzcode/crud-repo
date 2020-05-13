@@ -24,7 +24,8 @@
         </div>
     </div>
 </div>
-<form id="back" action="/inventories" method="POST" style="display: none;">
+<form id="back" action="/inventory" method="POST" style="display: none;">
     @csrf
+    @method('GET')
 </form>
 @endsection

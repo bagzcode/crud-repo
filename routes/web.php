@@ -23,14 +23,6 @@ Route::get('/siswa/{id}/edit', 'SiswaController@edit');
 Route::post('/siswa/{id}/update', 'SiswaController@update');
 Route::get('/siswa/{id}/delete', 'SiswaController@delete');
 
-Auth::routes();
-
+Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/inventories', 'InventoryController@index');
-Route::post('/inventories', 'InventoryController@index');
-Route::get('/inventories/{id}/detail', 'InventoryController@detail');
-Route::post('/inventories/create', 'InventoryController@create');
-Route::get('/inventories/{id}/edit', 'InventoryController@edit');
-Route::post('/inventories/{id}/update', 'InventoryController@update');
-Route::get('/inventories/{id}/delete', 'InventoryController@delete');
+Route::resource('inventory','WEB\InventoryController');

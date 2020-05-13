@@ -8,8 +8,9 @@
                 <div class="card-header">Item's Data Update</div>
 
                 <div class="card-body">
-                    <form action="/inventories/{{$item->id}}/update" method="POST">
+                    <form action="/inventory/{{$item->id}}" method="POST">
                         @csrf
+                        @method('PUT')
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="item_code">CODE</label>
@@ -43,7 +44,8 @@
         </div>
     </div>
 </div>
-<form id="back" action="/inventories" method="POST" style="display: none;">
+<form id="back" action="/inventory" method="POST" style="display: none;">
     @csrf
+    @method('GET')
 </form>
 @endsection

@@ -33,9 +33,13 @@
                         <td>{{ $item->owner }}</td>
                         <td>{{ $item->status }}</td>
                         <td>
-                            <a href="/inventories/{{$item->id}}/detail" class="btn-info btn-sm">Detail</a>
-                            <a href="/inventories/{{$item->id}}/edit" class="btn-warning btn-sm">Edit</a>
-                            <a href="/inventories/{{$item->id}}/delete" class="btn-danger btn-sm" onclick="return confirm('Are you sure you want to delet this item??')">Delete</a>
+                            <form action="/inventory/{{$item->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <a href="/inventory/{{$item->id}}" class="btn-info btn-sm">Detail</a>
+                            <a href="/inventory/{{$item->id}}/edit" class="btn-warning btn-sm">Edit</a>
+                            <button class="btn-danger btn-sm" type="submit" onclick="return confirm('Are you sure you want to delet this item??')">Delete</button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
@@ -54,7 +58,7 @@
             <span aria-hidden="true">&times;</span>
         </button>
         </div>
-        <form action="/inventories/create" method="POST">
+        <form action="/inventory" method="POST">
         @csrf
         <div class="modal-body">
             <div class="form-group">
