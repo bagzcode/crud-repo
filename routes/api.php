@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('login', 'API\UserController@login');
 Route::post('register', 'API\UserController@register');
+Route::get('logout', 'API\UserController@logout');
 
 Route::middleware('auth:api')->group(function(){
     Route::resource('inventories','API\InventoryController');
